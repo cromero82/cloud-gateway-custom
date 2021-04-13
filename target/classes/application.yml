@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: cloud-gateway-service
+  main:
+    allow-bean-definition-overriding: true
+  cloud:
+    gateway:
+      routes:
+      - id: employeeModule
+        uri: http://localhost:8090/api/auth/login
+        predicates:
+          - Method=GET,POST
+          #- Path=/login
+#      - id: consumerModule
+#        uri: http://localhost:8080/api
+#        predicates:
+#          - Path=/consumer/**
+server:
+  port: 8080
